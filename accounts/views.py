@@ -38,7 +38,7 @@ def login_user(request):
         user = authenticate(username=username, password=password)
         if user is not None:
             login(request, user)
-            return redirect('index-customer')
+            return redirect('dashboard')
         else:
             print("Error logging in")
             return render(request, 'accounts/login.html')
