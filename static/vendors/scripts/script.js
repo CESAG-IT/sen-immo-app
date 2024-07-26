@@ -184,7 +184,7 @@ jQuery(document).ready(function () {
 	$(".date-picker").datepicker({
 		language: "en",
 		autoClose: true,
-		dateFormat: "dd MM yyyy",
+		dateFormat: "YYYY-MM-DD",
 	});
 	$(".datetimepicker").datepicker({
 		timepicker: true,

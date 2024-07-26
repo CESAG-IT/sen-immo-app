@@ -12,7 +12,46 @@
 {% endblock page_sub_title %}
 
 {% block content %}
-    La liste des clients
+<div class="pd-20 card-box mb-30">
+    <div class="clearfix mb-20">
+        <div class="pull-left">
+            <h4 class="text-blue h4">Liste des clients</h4>
+            <p>Add class <code>customer</code></p>
+        </div>
+        <div class="pull-right">
+            <a href="{% url 'create-customer' %}" class="btn btn-primary btn-sm scroll-click" role="button"><i class="fa fa-add"></i> Add new</a>
+        </div>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">FirstName</th>
+                <th scope="col">LastName</th>
+                <th scope="col">Email</th>
+                <th scope="col">Username</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+           {% for customer in customers %}
+           <tr>
+            <th scope="row">{{ customer.id }}</th>
+            <td>{{ customer.firstname }}</td>
+            <td>{{ customer.lastname }}</td>
+            <td>{{ customer.email }}</td>
+            <td>{{ customer.account.username }}</td>
+            <td>
+                <a href=""  class="btn btn-info btn-sm">show</a>
+                <a href="{% url 'update-customer' customer.id %}"  class="btn btn-warning btn-sm">edit</a>
+                <a href=""  class="btn btn-danger btn-sm">delete</a>
+            </td>
+        </tr>
+           {% endfor %}
+
+        </tbody>
+    </table>
+</div>
 {% endblock content %}
     
     
