@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block page_title %}
+    Propriétes
+{% endblock page_title %}
+
+
+{% block page_sub_title %}
+    List of properties
+{% endblock page_sub_title %}
+
+
+{% block content %}
+<div class="pd-20 card-box mb-30">
+    <div class="clearfix mb-20">
+        <div class="pull-left">
+            <h4 class="text-blue h4">Liste des villas</h4>
+            <p>Add new <code>property</code></p>
+        </div>
+        <div class="pull-right">
+            <a href="{% url 'create-property' %}" class="btn btn-primary btn-sm scroll-click" role="button"><i class="fa fa-add"></i> Add new</a>
+        </div>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Image</th>
+                <th scope="col">Name</th>
+                <th scope="col">Owner</th>
+                <th scope="col">Price</th>
+                <th scope="col">Address</th>
+                <th scope="col">Bathrooms</th>
+                <th scope="col">Rooms</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+           {% for property in properties %}
+           <tr>
+            <th scope="row">{{ property.id }}</th>
+            <td><img src="{{ property.photo.url }}" alt="{{ property.name }}" width="70px" height="70px" /></td>
+            <td>{{ property.name }}</td>
+            <td>{{ property.owner.lastname }}</td>
+            <td>{{ property.price }}</td>
+            <td>{{ property.address }}</td>
+            <td>{{ property.bathrooms }}</td>
+            <td>{{ property.rooms }}</td>
+            <td>
+                <a href=""  class="btn btn-info btn-sm">show</a>
+                <a href="{% url 'update-property' property.id %}"  class="btn btn-warning btn-sm">edit</a>
+                <a href=""  class="btn btn-danger btn-sm">delete</a>
+            </td>
+        </tr>
+           {% endfor %}
+
+        </tbody>
+    </table>
+</div>
+{% endblock content %}
+    
+    
+    

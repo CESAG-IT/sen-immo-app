@@ -70,7 +70,7 @@
 						<div
 							class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list"
 						>
-							<a class="dropdown-item" href="profile.html"
+							<a class="dropdown-item" href="#"
 								><i class="dw dw-user1"></i> Profile</a
 							>
 
@@ -86,7 +86,7 @@
 
 		<div class="left-side-bar">
 			<div class="brand-logo">
-				<a href="index.html">
+				<a href="{% url 'dashboard' %}">
 					<img src="{% static 'vendors/images/deskapp-logo.svg' %}" alt="" class="dark-logo" />
 					<img
 						src="{% static 'vendors/images/deskapp-logo-white.svg' %}"
@@ -125,7 +125,7 @@
 						{% endif %}
 						{% if request.user.is_owner or request.user.is_superuser %}
                         <li>
-							<a href="#" class="dropdown-toggle no-arrow">
+							<a href="{% url 'properties' %}" class="dropdown-toggle no-arrow">
 								<span class="micon bi bi-house"></span
 								><span class="mtext">Properties</span>
 							</a>

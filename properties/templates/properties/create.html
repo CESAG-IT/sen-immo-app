@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block page_title %}
+    Properties
+{% endblock page_title %}
+
+
+{% block page_sub_title %}
+    properties Create
+{% endblock page_sub_title %}
+
+{% block content %}
+<div class="pd-20 card-box mb-30">
+    <div class="clearfix">
+        <div class="pull-left">
+            <h4 class="text-blue h4">Ajout d'une propriéteé</h4>
+        </div>
+        <div class="pull-right">
+            
+        </div>
+    </div>
+    <form method="POST" action="{% url 'create-property' %}">
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        {% comment %} <div class="form-group row">
+            <label class="col-sm-12 col-md-2 col-form-label">Nom</label>
+            <div class="col-sm-12 col-md-10">
+                <input class="form-control" type="text" placeholder="Johnny Brown" name="lastname">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-12 col-md-2 col-form-label">Prenom</label>
+            <div class="col-sm-12 col-md-10">
+                <input class="form-control" type="text" placeholder="Johnny Brown" name="firstname">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-12 col-md-2 col-form-label">Email</label>
+            <div class="col-sm-12 col-md-10">
+                <input class="form-control" value="bootstrap@example.com" type="email" name="email">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-12 col-md-2 col-form-label">Username</label>
+            <div class="col-sm-12 col-md-10">
+                <input class="form-control" type="text" placeholder="Johnny Brown" name="username">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-12 col-md-2 col-form-label">Telephone</label>
+            <div class="col-sm-12 col-md-10">
+                <input class="form-control" value="+221 78 876 76 87" type="tel" name="phone">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-12 col-md-2 col-form-label">Job</label>
+            <div class="col-sm-12 col-md-10">
+                <input class="form-control" type="text" placeholder="Johnny Brown" name="job">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-12 col-md-2 col-form-label">Date Of Birth</label>
+            <div class="col-sm-12 col-md-10">
+                <input class="form-control" placeholder="Select Date" type="text" name=date_of_birth>
+            </div>
+        </div> {% endcomment %}
+
+        <div class="btn-list row">
+            <button type="submit" class="btn btn-primary btn-lg">
+                ajouter
+            </button>
+            <a type="button" class="btn btn-secondary btn-lg" href="{% url 'properties' %}">
+                annuler
+            </a>
+        </div>
+        
+    </form>
+</div>
+{% endblock content %}

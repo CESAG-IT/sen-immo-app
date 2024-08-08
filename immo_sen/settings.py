@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     "customers",
     "core",
     "owners",
+    "properties",
 ]
 
 MIDDLEWARE = [
@@ -123,6 +124,9 @@ USE_TZ = True
 STATIC_URL = "static/"
 STATICFILES_DIRS = [BASE_DIR / "static"]
 
+MEDIA_URL = "media/"
+MEDIA_ROOT = BASE_DIR / "media"
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
@@ -134,3 +138,9 @@ AUTH_USER_MODEL = "accounts.User"
 MESSAGE_TAGS = {
         messages.ERROR: 'danger',
 }
+
+
+EMAIL_HOST = 'sandbox.smtp.mailtrap.io'
+EMAIL_HOST_USER = 'a349623c0719fb'
+EMAIL_HOST_PASSWORD = '7ee52ebe5bc446'
+EMAIL_PORT = '2525'
