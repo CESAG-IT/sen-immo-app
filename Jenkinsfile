@@ -19,11 +19,11 @@ pipeline {
         stage("Push to Docker Hub") {
             steps {
                 echo "Pushing the Docker image to Docker Hub"
-                withCredentials([usernamePassword(credentialsId: "dockerHub", passwordVariable: "dockerHubPass", usernameVariable: "dockerHubUser")]) {
-                    sh "docker tag sen-immo-app ${env.dockerHubUser}/sen-immo-app:latest"
-                    sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPass}"
-                    sh "docker push ${env.dockerHubUser}/sen-immo-app:latest"
-                }
+//                 withCredentials([usernamePassword(credentialsId: "dockerHub", passwordVariable: "dockerHubPass", usernameVariable: "dockerHubUser")]) {
+                sh "docker tag sen-immo-app ${env.dockerHubUser}/sen-immo-app:latest"
+                sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPass}"
+                sh "docker push ${env.dockerHubUser}/sen-immo-app:latest"
+//                 }
             }
         }
 
